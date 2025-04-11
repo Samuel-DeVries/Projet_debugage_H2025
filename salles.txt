@@ -1,0 +1,9 @@
+Salle	Capacite
+A1	12
+A2	15
+A3	20
+B1	25
+B2	10
+B3	30
+C1	100
+C2	200
