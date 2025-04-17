@@ -22,8 +22,8 @@ def reserver():
             if nb_salle == nb_ligne:
                 nom_salle = ligne.split("\t")[0]
     date = input("Pour quelle date souhaitez-vous faire la réservation? (format : AAAA-MM-JJ)")
-    heure = int(input("Pour quelle heure sohautez-vous faire la réservation? (fromat : hh)"))
-    dure = int(input("Donnez la duré de votre réservation. Notez que la réservation doit être d'un minimum d'une. La duré se fait en incrément d'une heure."))
+    heure = int(input("Pour quelle heure sohautez-vous faire la réservation? (format : hh)"))
+    dure = int(input("Donnez la duré de votre réservation. Notez que la réservation doit être d'un minimum d'une heure. La duré se fait en incrément d'une heure."))
     reservation = [id_reservation,nom_utilisateur,nom_salle,date,heure,dure]
     with open("reservations.csv", "w") as fichier_reservation:
         ecrivain = csv.writer(fichier_reservation)
