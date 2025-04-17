@@ -5,7 +5,7 @@ def reserver():
         next(reservations)
         reservations = list(reservations)
         try:
-            id_reservation = reservations[-1][0]+1
+            id_reservation = int(reservations[-1][0])+1
         except IndexError:
             id_reservation = 1
     nom_utilisateur = input("À quel nom est la réservation?")
@@ -23,10 +23,12 @@ def reserver():
                 nom_salle = ligne.split("\t")[0]
     date = input("Pour quelle date souhaitez-vous faire la réservation? (format : AAAA-MM-JJ)")
     heure = int(input("Pour quelle heure sohautez-vous faire la réservation? (fromat : hh)"))
-    dure = int(input("Donnez la duré de votre réservation. Notez que la réservation doit être d'un minimum d'une. La duré se fait en incrément d'une heure."))
+    dure = input("Donnez la duré de votre réservation. Notez que la réservation doit être d'un minimum d'une. La duré se fait en incrément d'une heure.")
     reservation = [id_reservation,nom_utilisateur,nom_salle,date,heure,dure]
-    with open("reservations.csv", "w") as fichier_reservation:
+    with open("reservations.csv", "w", newline="") as fichier_reservation:
         ecrivain = csv.writer(fichier_reservation)
-        
+        ecrivain.writerow(["id","nom d'utilisaterur","nom de la salle", "date", "heure", "dure"])
+        if reservations != []:
+            ecrivain.writerows(reservations)
         ecrivain.writerow(reservation)
 reserver()
