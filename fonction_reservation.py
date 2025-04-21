@@ -5,7 +5,7 @@ def reserver():
         next(reservations)
         reservations = list(reservations)
         try:
-            id_reservation = reservations[-1][0]+1
+            id_reservation = int(reservations[-1][0])+1
         except IndexError:
             id_reservation = 1
     nom_utilisateur = input("À quel nom est la réservation?")
@@ -54,11 +54,31 @@ def reserver():
         except ValueError as e:
             print("Erreur de valeur : ", e)
             quit()
-    heure = int(input("Pour quelle heure sohautez-vous faire la réservation? (format : hh)"))
-    dure = int(input("Donnez la duré de votre réservation. Notez que la réservation doit être d'un minimum d'une heure. La duré se fait en incrément d'une heure."))
+    try:
+        heure = int(input("Pour quelle heure sohautez-vous faire la réservation? (format : hh)"))
+        if heure>23:
+            raise ValueError("Le format de l'heure n'a pas été respecté")
+        dure = int(input("Donnez la duré de votre réservation. Notez que la réservation doit être d'un minimum d'une heure. La duré se fait en incrément d'une heure."))
+        if 24-heure<dure:
+            raise ValueError("Le format de la duré n'a pas été respecté ou la duré entrée implique une fin de réservation qui serait dans une journée future.")
+    except ValueError as e:
+        print("Erreur de valeur : ", e)
+        try:
+            heure = int(input("Pour quelle heure sohautez-vous faire la réservation? (format : hh)"))
+            if heure>23:
+                raise ValueError("Le format de l'heure n'a pas été respecté")
+            dure = int(input("Donnez la duré de votre réservation. Notez que la réservation doit être d'un minimum d'une heure. La duré se fait en incrément d'une heure."))
+            if 24-heure<dure:
+                raise ValueError("Le format de la duré n'a pas été respecté ou la duré entrée implique une fin de réservation qui serait dans une journée future.")
+        except ValueError as e:
+            print("Erreur de valeur : ", e)
+            quit()
     reservation = [id_reservation,nom_utilisateur,nom_salle,date,heure,dure]
-    with open("reservations.csv", "w") as fichier_reservation:
+    with open("reservations.csv", "w", newline="") as fichier_reservation:
         ecrivain = csv.writer(fichier_reservation)
-        
+        ecrivain.writerow(["ID","Nom d'utilisateur","Nom de la salle","Date","Heure","Dure"])
+        if reservations!=[]:
+            ecrivain.writerows(reservations)
         ecrivain.writerow(reservation)
+    print("La réservation à été effectuée evec succès. Prenez note de votre identifiant de réservation, soit le", id_reservation)
 reserver()
