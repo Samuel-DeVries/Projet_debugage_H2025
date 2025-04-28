@@ -1,5 +1,5 @@
 def saisie_salle():
-    with open("salles.txt", "r") as salles:
+    with open("C:\\Users\\samue\\OneDrive - Collège Universel\\H2025\\Programmation_II_-_Debogage_informatique\\Travaux\\Projet\\Code\\Projet_debugage_H2025\\Code\\Fichiers\\salles.txt", "r") as salles:
         liste_salles = salles.readlines()
         for nb_ligne, ligne in enumerate(liste_salles):
             if nb_ligne == 0:

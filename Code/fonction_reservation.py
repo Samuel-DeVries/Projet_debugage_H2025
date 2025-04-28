@@ -2,16 +2,8 @@ import csv
 from fonction_saisie_date import saisie_date
 from fonction_dispo import dispo
 from fonction_saisie_salle import saisie_salle
-def afficher_menu():
-    print("==== Reserver Avec SFJ ====")
-    print("            Menu           ")
-    print("1. Réserver une salle")
-    print("2. Afficher les disponibilités")
-    print("3. Annuler une réservation")
-    print("4. Lister toutes les réservation actuelles")
-    print("5. Quitter")
 def reserver():
-    with open("reservations.csv", "r") as fichier_reservations:
+    with open("C:\\Users\\samue\\OneDrive - Collège Universel\\H2025\\Programmation_II_-_Debogage_informatique\\Travaux\\Projet\\Code\\Projet_debugage_H2025\\Code\\Fichiers\\reservations.csv", "r") as fichier_reservations:
         reservations = csv.reader(fichier_reservations)
         next(reservations)
         reservations = list(reservations)
@@ -67,29 +59,3 @@ def reserver():
             ecrivain.writerows(reservations)
         ecrivain.writerow(reservation)
     print("La réservation à été effectuée avec succès. Prenez note de votre identifiant de réservation, soit le", id_reservation)
-reserver()
-def main():
-    while True:
-        afficher_menu()
-        try:
-            action = int(input("Insérez le chiffre de l'action voulue: "))
-            
-            if action == 1:
-                reserver()
-            elif action == 2:
-                print
-            elif action == 3:
-                print
-            elif action == 4:
-                print
-            elif action == 5:
-                print("Merci d'avoir utilisé SFJ. Au revoir!")
-                break
-            else:
-                print("Erreur: Veuillez choisir une option entre 1 et 5")
-            
-        except ValueError:
-            print("Erreur: Veuillez entrer un nombre valide")
-
-if __name__ == "__main__":
-    main()

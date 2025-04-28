@@ -12,4 +12,3 @@ def affiche_dispo():
             print(f"{heure} : Disponible")
         else:
             print(f"{heure} : Indisponible")
-affiche_dispo()

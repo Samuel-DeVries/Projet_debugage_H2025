@@ -1,6 +1,6 @@
 def saisie_date():
     try:
-        date = input("Pour quelle date souhaitez-vous faire la réservation? (format : AAAA-MM-JJ)")
+        date = input("Saisissez la date (format : AAAA-MM-JJ)")
         if len(date)!=10 or len(date.split("-")[0])!=4 or len(date.split("-")[1])!=2 or len(date.split("-")[2])!=2:
             raise ValueError("La date entrée ne respecte pas le format AAAA-MM-JJ")
         if int(date.split("-")[1]) not in range(1, 13):
