@@ -24,7 +24,7 @@ def reserver():
             if int(h) == heure:
                 if not d:
                     raise ValueError("Cette heure est indisponible")
-        dure = int(input("Donnez la duré de votre réservation. Notez que la réservation doit être d'un minimum d'une heure. La duré se fait en incrément d'une heure."))
+        dure = int(input("Donnez la durée de votre réservation. Notez que la réservation doit être d'un minimum d'une heure. La durée se fait en incrément d'une heure."))
         if 24-heure<dure:
             raise ValueError("Le format de la duré n'a pas été respecté ou la duré entrée implique une fin de réservation qui serait dans une journée future.")
         for h, d in heures.items():
@@ -41,7 +41,7 @@ def reserver():
                 if int(h) == heure:
                     if not d:
                         raise ValueError("Cette heure est indisponible")
-            dure = int(input("Donnez la duré de votre réservation. Notez que la réservation doit être d'un minimum d'une heure. La duré se fait en incrément d'une heure."))
+            dure = int(input("Donnez la durée de votre réservation. Notez que la réservation doit être d'un minimum d'une heure. La durée se fait en incrément d'une heure."))
             if 24-heure<dure:
                 raise ValueError("Le format de la duré n'a pas été respecté ou la duré entrée implique une fin de réservation qui serait dans une journée future.")
             for h, d in heures.items():
@@ -58,5 +58,5 @@ def reserver():
         if reservations!=[]:
             ecrivain.writerows(reservations)
         ecrivain.writerow(reservation)
-    print("La réservation à été effectuée evec succès. Prenez note de votre identifiant de réservation, soit le", id_reservation)
+    print("La réservation à été effectuée avec succès. Prenez note de votre identifiant de réservation, soit le", id_reservation)
 reserver()

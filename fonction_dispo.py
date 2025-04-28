@@ -19,4 +19,5 @@ def dispo(date, nom_salle):
             if dispo == True:
                 if int(reservation[4])<=int(heure)<=int(reservation[6]):
                     heures[heure] = False
-        return heures
+    return heures
+
