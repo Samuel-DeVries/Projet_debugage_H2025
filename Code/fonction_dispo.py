@@ -1,6 +1,6 @@
 import csv
 def dispo(date, nom_salle):
-    with open("C:\\Users\\samue\\OneDrive - Collège Universel\\H2025\\Programmation_II_-_Debogage_informatique\\Travaux\\Projet\\Code\\Projet_debugage_H2025\\Code\\Fichiers\\reservations.csv", "r") as fichier_reservations:
+    with open("Fichiers\\reservations.csv", "r") as fichier_reservations:
         liste_reservations = csv.reader(fichier_reservations)
         next(liste_reservations)
         liste_reservations = list(liste_reservations)

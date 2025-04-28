@@ -3,7 +3,7 @@ from fonction_saisie_date import saisie_date
 from fonction_dispo import dispo
 from fonction_saisie_salle import saisie_salle
 def reserver():
-    with open("C:\\Users\\samue\\OneDrive - Collège Universel\\H2025\\Programmation_II_-_Debogage_informatique\\Travaux\\Projet\\Code\\Projet_debugage_H2025\\Code\\Fichiers\\reservations.csv", "r") as fichier_reservations:
+    with open("Fichiers\\reservations.csv", "r") as fichier_reservations:
         reservations = csv.reader(fichier_reservations)
         next(reservations)
         reservations = list(reservations)
@@ -52,7 +52,7 @@ def reserver():
             print("Erreur de valeur : ", e)
             quit()
     reservation = [id_reservation,nom_utilisateur,nom_salle,date,heure,dure]
-    with open("reservations.csv", "w", newline="") as fichier_reservation:
+    with open("Fichiers\\reservations.csv", "w", newline="") as fichier_reservation:
         ecrivain = csv.writer(fichier_reservation)
         ecrivain.writerow(["ID","Nom d'utilisateur","Nom de la salle","Date","Heure","Dure"])
         if reservations!=[]:
