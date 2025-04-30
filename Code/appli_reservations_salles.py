@@ -22,5 +22,5 @@ while True:
     elif action == 5:
         print("Merci d'avoir utilisé SFJ. Au revoir!")
         quit()
-        else:
+    else:
         raise ValueError("Veuillez choisir une option entre 1 et 5")
