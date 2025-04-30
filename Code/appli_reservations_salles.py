@@ -1,7 +1,7 @@
 from fonction_reservation import *
 from fonction_affiche_dispo import *
 from fonction_affiche_reservations import *
-#from fonction_annule_reservation import *
+from fonction_annule_reservation import *
 while True:
     print("==== Reserver avec SFNJ ====")
     print("            Menu           ")
@@ -10,38 +10,17 @@ while True:
     print("3. Annuler une réservation")
     print("4. Lister toutes les réservation actuelles")
     print("5. Quitter")
-    try:
-        action = int(input("Insérez le chiffre de l'action voulue: "))
-        if action == 1:
-            reserver()
-        elif action == 2:
-            affiche_dispo()
-        #elif action == 3:
-            #annule_reservations()
-        elif action == 4:
-            affiche_reservation()
-        elif action == 5:
-            print("Merci d'avoir utilisé SFJ. Au revoir!")
-            quit()
+    action = int(input("Entrez le chiffre de l'action voulue: "))
+    if action == 1:
+        reserver()
+    elif action == 2:
+        affiche_dispo()
+    elif action == 3:
+        annule_reservation()
+    elif action == 4:
+        affiche_reservations()
+    elif action == 5:
+        print("Merci d'avoir utilisé SFJ. Au revoir!")
+        quit()
         else:
-            raise ValueError("Veuillez choisir une option entre 1 et 5")
-    except ValueError as e:
-        print("Erreur : e")
-        try:
-            action = int(input("Insérez le chiffre de l'action voulue: "))
-            if action == 1:
-                reserver()
-            elif action == 2:
-                affiche_dispo()
-            elif action == 3:
-                annule_reservation()
-            elif action == 4:
-                affiche_reservation()
-            elif action == 5:
-                print("Merci d'avoir utilisé SFJ. Au revoir!")
-                quit()
-            else:
-                raise ValueError("Vous n'avez toujours pas entrez une option valide.")
-        except ValueError as e:
-            print("Erreur : e")
-            quit()
+        raise ValueError("Veuillez choisir une option entre 1 et 5")
