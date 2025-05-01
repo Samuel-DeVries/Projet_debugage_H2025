@@ -20,7 +20,7 @@ while True:
     elif action == 4:
         affiche_reservations()
     elif action == 5:
-        print("Merci d'avoir utilisé SFJ. Au revoir!")
+        print("Merci d'avoir utilisé SFNJ. Au revoir!")
         quit()
     else:
         raise ValueError("Veuillez choisir une option entre 1 et 5")
